@@ -1,0 +1,80 @@
+### CREATE initial documents.
+### CREATE 1
+POST http://localhost:3000/cats HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Maximillian Desmus Meredius (Maxxie)",
+    "age": 10,
+    "breed": "Golden Manx",
+    "portraitUrl": "https://photos.app.goo.gl/PGCdwQUCT2WedJZz8",
+    "personality": "Affectionate, Dog-Like Mannerisms, Hunter-Seeker",
+    "ratKills": 2,
+    "birdKills": 7
+}
+
+### CREATE 2
+POST http://localhost:3000/cats HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Blackie",
+    "age": 3,
+    "breed": "Void Cat",
+    "portraitUrl": "https://photos.app.goo.gl/8viRrWA4MGaqmSNW6",
+    "personality": "Skiddish, Shy, Hard to Photograph",
+    "ratKills": 1,
+    "birdKills": 0
+}
+
+### CREATE 3
+POST http://localhost:3000/cats HTTP/1.1
+content-type: application/json
+
+{
+    "name": "JiJi",
+    "age": 34,
+    "breed": "Magic Cat",
+    "portraitUrl": "https://easydrawingguides.com/wp-content/uploads/2022/04/Jiji-Cat-step-by-step-drawing-tutorial-step-10.png",
+    "personality": "Chatty, Sarcastic, Proud, Speaks Japanese",
+    "ratKills": 0,
+    "birdKills": 0
+}
+
+
+
+
+### RETRIEVE all documents.
+GET http://localhost:3000/cats HTTP/1.1
+
+
+
+### RETRIEVE a document by its ID.
+### Replace the following ID with one that exists in the collection.
+GET http://localhost:3000/cats/64097a6e565f14804583e732 HTTP/1.1
+
+
+### UPDATE one document's year, by ID.
+### Replace the id in the following request with one that exists
+### and update the portrailUrl, name, age, breed, personality, ratKills, or birdKills.
+PUT http://localhost:3000/cats/64097925565f14804583e729 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Blackie",
+    "age": 3,
+    "breed": "Void Cat",
+    "portraitUrl": "https://photos.app.goo.gl/8viRrWA4MGaqmSNW6",
+    "personality": "Less Skiddish, Less Shy, Still Hard to Photograph",
+    "ratKills": 1,
+    "birdKills": 10
+}
+
+
+### DELETE by ID (no response provided)
+DELETE http://localhost:3000/cats/64097b15431dea85d3ed452d HTTP/1.1
+
+
+### DELETEs ALL documents!
+DELETE http://localhost:3000/cats/ HTTP/1.1
+

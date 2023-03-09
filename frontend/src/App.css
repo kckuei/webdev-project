@@ -1,0 +1,710 @@
+/*=====MOBILE styles (reside at the top and are inherited by all devices)=====*/
+/*  ===== See tablet, desktop, and print @media queries at the bottom. */
+
+
+/*   ----- Imports  -----  */
+/* Add fonts from the app's server 
+    @font-face {                
+      font-family: 'FontName';
+      src: url('FontName.woff2') format('woff2');
+    } 
+    ...or hosted services like Google Fonts 
+    @import url(//fonts.googleapis.com/css?family=Font+Name); */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+/* @import 'node_modules/modern-normalize/modern-normalize.css'; */
+/* npm install modern-normalize
+              Resets elements for browser consistency.  
+              https://www.npmjs.com/package/modern-normalize
+            */
+
+/* Component-specific stylesheets, if any. 
+        @import "component1.css";   
+      */
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
+/*   ----- Variables  -----  */
+:root {
+  --beaver-orange: #DC4405;
+  --text-color: rgb(37, 37, 37);
+  --border-color: rgb(37, 37, 37);
+  --luminance-color: hsl(36, 99%, 51%);
+  --article-color: hsl(39, 81%, 94%);
+  --contrast-color: rgba(0, 135, 153, 0.8);
+  --navbar-color: #333;
+  --navtext-color: #f2f2f2;
+  --navhover-color: #ddd;
+}
+
+/*  ----- Viewport ----- elements inherited by all remaining elements ----- */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: none;
+  background-image: url("./imgs/background5-1200x.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: top left;
+  background-repeat: no-repeat;
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+  margin: 0% 0%;
+  padding: 0% 10%;
+}
+
+/*  ----- Page layout blocks -----  */
+header {
+  color: var(--text-color);
+  margin-bottom: 2em;
+  padding: auto;
+}
+
+main {
+  background-color: auto;
+  color: auto;
+  margin: auto;
+  padding: auto;
+  border: auto;
+  margin: 0%;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: var(--luminance-color); */
+}
+
+article {
+  max-width: 1500px;
+  min-width: 500px;
+  background-color: white;
+  border-radius: 15px;
+  padding: 10px 20px;
+  margin: 20px 0px;
+  border: solid var(--border-color) 1px;
+  background-color: var(--article-color);
+}
+
+#topic1 {}
+
+#topic2 {}
+
+div {}
+
+aside {}
+
+
+.footerText {
+  font-weight: bold;
+  margin: 0 0;
+}
+
+footer {
+  width: 100%;
+  height: 2.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  color: var(--text-color);
+  border: none;
+}
+
+footer>h5 {
+  padding: 0px;
+  margin: 0px;
+  color: var(--text-color);
+}
+
+#staffArticle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ----- Anchors ----- Text links */
+a {}
+
+a:link {}
+
+a:hover {}
+
+a:active {}
+
+a:visited {}
+
+
+/*  ----- Navigation ----- Override text links for navigation only.  */
+
+nav {
+  margin-top: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--navbar-color);
+  overflow: hidden;
+}
+
+nav a {
+  color: var(--navtext-color);
+  font-size: 1.3em;
+  font-weight: bold;
+  margin: 0px 0px;
+  padding: 3px 20px 5px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+nav a:hover {
+  background-color: var(--navhover-color);
+  color: var(--navbar-color);
+}
+
+/* Add a color to the active/current link */
+nav a.active {
+  background-color: var(--beaver-orange);
+  color: var(--navhover-color);
+}
+
+.nav-articles {
+  background-color: inherit;
+  font-size: 1.2em;
+  display: flex;
+  flex: wrap;
+  margin-bottom: -10px;
+  margin-top: -10px;
+}
+
+.nav-articles a {
+  background-color: var(--luminance-color);
+  color: var(--text-color);
+  font-size: 0.8em;
+  margin-right: 0px;
+  padding: 5px 5px;
+  border-left: var(--beaver-orange) solid 2px;
+}
+
+.nav-articles a:hover {
+  color: var(--contrast-color);
+}
+
+/*  -----  Typography  ----- */
+
+Page ol,
+ul,
+dl {}
+
+li {}
+
+dt {}
+
+dd {}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {}
+
+h1 {
+  font-size: 60px;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {}
+
+h4 {
+  color: var(--beaver-orange);
+}
+
+h5 {
+  color: var(--luminance-color);
+}
+
+h6 {}
+
+.subtitle {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 22px;
+  vertical-align: middle;
+  width: 100%;
+  text-align: left;
+  outline: none;
+}
+
+.active,
+.foldable:hover {
+  background-color: #555;
+}
+
+
+.foldable::after {
+  content: "\002B";
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.foldable.active::after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+/*  ----- Coding or instructional typography ----- */
+pre {
+  white-space: pre-line;
+  padding-left: 40px;
+}
+
+code {}
+
+kbd {}
+
+samp {}
+
+var {}
+
+del {}
+
+ins {}
+
+/*  ----- Table ----- */
+table {}
+
+.orderTable {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  overflow-x: auto;
+  border-spacing: 0;
+  font-size: 1.02rem;
+}
+
+caption {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+thead {
+  font-weight: bold;
+}
+
+tbody {}
+
+tfoot {}
+
+tr {}
+
+/* .orderTable tbody>tr:hover {
+  background-color: var(--contrast-color);
+} */
+
+tr:nth-child(even) {
+  background-color: var(--luminance-color);
+}
+
+th {}
+
+td {}
+
+th,
+tr,
+td {
+  border: 1px solid;
+}
+
+th,
+td {
+  padding: 5px 10px;
+}
+
+.orderTable thead tr {
+  font-size: 1.2rem;
+  background-color: var(--navbar-color);
+  color: var(--navtext-color);
+}
+
+.description {
+  max-width: 600px;
+  text-align: center;
+}
+
+td:nth-child(1) {}
+
+colgroup {}
+
+data {}
+
+datalist {}
+
+.incrementerBox {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  align-items: center;
+}
+
+.quantityBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.quantity {
+  margin-left: 15px;
+}
+
+#staff {
+  width: 100%;
+  /* min-width: max-content; */
+  /* table-layout: fixed; */
+  margin-top: 20px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  border-spacing: 0;
+  font-size: 0.95rem;
+}
+
+#staff caption {
+  font-size: 1.2rem;
+}
+
+#staff tbody tr:nth-child(odd) {
+  background-color: rgb(243, 231, 199);
+}
+
+#staff tbody tr:nth-child(even) {
+  background-color: rgb(236, 234, 229);
+}
+
+#staff thead tr {
+  background-color: var(--navbar-color);
+  color: var(--navtext-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+
+/*  ----- Lists ----- */
+dl {}
+
+dt {
+  font-style: italic;
+}
+
+dd {}
+
+/*  ----- Form ----- */
+form,
+button,
+input,
+select,
+textarea {
+  font-family: 'Roboto', sans-serif;
+}
+
+form {
+  width: 100%;
+  padding: 1% 0%;
+  color: var(--text-color);
+}
+
+fieldset {
+  border: 2px solid var(--beaver-orange);
+  background-color: var(--almost-white);
+  margin: 5% 5%;
+}
+
+legend {
+  font-weight: bold;
+  background-color: var(--almost-white)
+}
+
+label {
+  display: block;
+  margin-top: 3%;
+  font-size: 90%;
+}
+
+button {}
+
+input {
+  padding: 2%;
+  font-size: 120%;
+  display: block;
+}
+
+output {}
+
+meter {}
+
+progress {}
+
+select {
+  height: calc(2.25rem + 2px);
+  width: 50%;
+}
+
+optgroup {}
+
+option {}
+
+textarea {
+  width: 90%;
+  height: 10em;
+  resize: vertical;
+  min-height: 2em;
+}
+
+
+.inline {
+  display: flex;
+}
+
+.inline label {
+  display: inline;
+}
+
+.inline input {
+  display: inline;
+}
+
+.submit-button {
+  margin-top: 5%;
+  padding: 0.375rem 0.75rem;
+}
+
+/* 
+.thankyou {
+  margin: 5% 5%;
+}
+
+.thankyou div:nth-child(-n + 2) {
+  margin: 5% 0%;
+}
+
+.thankyou div:nth-child(n + 3) {
+  margin: 1% 0%;
+  font-size: 90%;
+} */
+
+.hireButton {
+  font-weight: bold;
+  background-color: var(--beaver-orange);
+  color: white;
+  font-size: 1.2rem;
+  width: 200px;
+}
+
+.hireButton:hover {
+  background-color: rgb(65, 63, 63);
+  color: white;
+}
+
+
+/* ----- Media ----- */
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: none;
+}
+
+figcaption {
+  font-size: 1.1rem;
+  font-style: italic;
+  width: 100%;
+  color: var(--navtext-color);
+  background-color: var(--navbar-color);
+  text-align: center;
+}
+
+figure img {
+  background-color: none;
+}
+
+svg {}
+
+picture {}
+
+source {}
+
+iframe {}
+
+video {}
+
+audio {}
+
+embed {}
+
+object {}
+
+/*  ----- Classes for alignment, positioning, widths, grids, embellishments, and animation -----  */
+.gallery {}
+
+.floatright {}
+
+.floatleft {}
+
+.center-middle {}
+
+.ten {}
+
+.twenty {}
+
+.thirty {}
+
+.forty {}
+
+.fifty {}
+
+.sixty {}
+
+.seventy {}
+
+.eighty {}
+
+.radius {}
+
+.circle {}
+
+.boxshadow {}
+
+.tshadow {}
+
+.gradient {}
+
+.shape {}
+
+/* Animations */
+
+#t1 {
+  animation: fadeIn 0.4s;
+}
+
+#t2 {
+  animation: fadeIn 0.8s;
+}
+
+#t3 {
+  animation: fadeIn 1.2s;
+}
+
+#t4 {
+  animation: fadeIn 1.6s;
+}
+
+#t5 {
+  animation: fadeIn 2.0s;
+}
+
+#t6 {
+  animation: fadeIn 2.4s;
+}
+
+#t7 {
+  animation: fadeIn 2.8s;
+}
+
+#t8 {
+  animation: fadeIn 3.2s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.portrait {
+  border-radius: 50%;
+}
+
+
+
+
+@keyframes App-logo {}
+
+/*   ===== TABLET  media query overrides mobile styles ===== */
+@media all and (min-width: 600px) {}
+
+/*   ===== DESKTOP  media query overrides mobile and tablet styles ===== */
+@media all and (min-width: 1080px) {}
+
+/*   ===== PRINT  media query overrides previous styles =====  */
+@media print {}
+
+
+/* * {
+        border: red 1px solid;
+    } */
+
+
+
+
+
+
+
+
+
+
+/* Default React Styling */
+
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+} */
