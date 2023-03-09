@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 export const EditCatPage = ({ catForEditing }) => {
 
+    // Use state for saving cat edit updates. 
+    // Initialize state to the hoisted catForEditing values. 
+    // Inputs will be updated on click. 
     const [name, setName] = useState(catForEditing.name);
     const [age, setAge] = useState(catForEditing.age);
     const [breed, setBreed] = useState(catForEditing.breed);
@@ -13,6 +16,7 @@ export const EditCatPage = ({ catForEditing }) => {
 
     const redirect = useNavigate();
 
+    // Aggregates the edited states and PUTS it to the UPDATE route.
     const editCat = async () => {
         const response = await fetch(`/cats/${catForEditing._id}`, {
             method: 'PUT',
@@ -35,10 +39,6 @@ export const EditCatPage = ({ catForEditing }) => {
             alert(`Document not edited. Status: ${response.status}. ${errMessage.Error}`);
         }
         redirect("/cats");
-    }
-
-    const cancelEdit = async () => {
-        redirect("/cats")
     }
 
     return (
@@ -107,7 +107,7 @@ export const EditCatPage = ({ catForEditing }) => {
 
                         <label for="cancel">
                             <button
-                                onClick={cancelEdit}
+                                onClick={() => { redirect("/cats") }}
                                 id="cancel">
                                 Cancel
                             </button> edit.</label>

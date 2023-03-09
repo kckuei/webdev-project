@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 export const AddCatPage = () => {
 
+    // Use state for saving new cat info.
     const [name, setName] = useState('');
     const [age, setAge] = useState('');
     const [breed, setBreed] = useState('');
@@ -13,10 +14,16 @@ export const AddCatPage = () => {
 
     const redirect = useNavigate();
 
+    // Aggregate the new cat info and POST it to the CREATE route.
     const addCat = async () => {
         const newCat = {
-            name, age, breed, portraitUrl,
-            personality, birdCount, rodentCount
+            name,
+            age,
+            breed,
+            portraitUrl,
+            personality,
+            birdCount,
+            rodentCount
         };
         const response = await fetch('/cats', {
             method: 'post',
@@ -74,7 +81,7 @@ export const AddCatPage = () => {
                             id="portrailUrl" />
 
                         <label for="personality">Personality</label>
-                        <input
+                        <textarea
                             type="text"
                             placeholder="Personality of cat"
                             value={personality}
@@ -104,6 +111,13 @@ export const AddCatPage = () => {
                                 id="submit">
                                 Add
                             </button> to the cat collection!</label>
+
+                        <label for="cancel">
+                            <button
+                                onClick={() => { redirect("/cats") }}
+                                id="cancel">
+                                Cancel
+                            </button> edit.</label>
                     </fieldset>
                 </form>
             </article>

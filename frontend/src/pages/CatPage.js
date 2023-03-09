@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import CatList from '../components/CatList.js';
 
 function CatPage({ setCatForEditing }) {
@@ -47,6 +47,7 @@ function CatPage({ setCatForEditing }) {
         <>
             <h2>List of Cats</h2>
             <p>Paragraph about this page.</p>
+            <p><Link to="/cats/create" >Add a Cat</Link></p>
             <CatList
                 cats={cats}
                 onEdit={onEditCat}
