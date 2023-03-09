@@ -7,9 +7,13 @@ function CatList({ cats, onDelete, onEdit }) {
             <caption>Add and Edit Cats</caption>
             <thead>
                 <tr>
+                    <th>Portait</th>
                     <th>Name</th>
                     <th>Age</th>
                     <th>Breed</th>
+                    <th>Personality</th>
+                    <th>Bird Count</th>
+                    <th>Rodent Count</th>
                     <th>Delete</th>
                     <th>Edit</th>
                 </tr>

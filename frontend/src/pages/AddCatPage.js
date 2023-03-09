@@ -6,11 +6,18 @@ export const AddCatPage = () => {
     const [name, setName] = useState('');
     const [age, setAge] = useState('');
     const [breed, setBreed] = useState('');
+    const [portraitUrl, setPortraitUrl] = useState('');
+    const [personality, setPersonality] = useState('');
+    const [birdCount, setBirdCount] = useState('');
+    const [rodentCount, setRodentCount] = useState('');
 
     const redirect = useNavigate();
 
     const addCat = async () => {
-        const newCat = { name, age, breed };
+        const newCat = {
+            name, age, breed, portraitUrl,
+            personality, birdCount, rodentCount
+        };
         const response = await fetch('/cats', {
             method: 'post',
             body: JSON.stringify(newCat),
@@ -57,6 +64,38 @@ export const AddCatPage = () => {
                             value={breed}
                             onChange={e => setBreed(e.target.value)}
                             id="breed" />
+
+                        <label for="portrailUrl">Portrail URL</label>
+                        <input
+                            type="text"
+                            placeholder="Portrait url"
+                            value={portraitUrl}
+                            onChange={e => setPortraitUrl(e.target.value)}
+                            id="portrailUrl" />
+
+                        <label for="personality">Personality</label>
+                        <input
+                            type="text"
+                            placeholder="Personality of cat"
+                            value={personality}
+                            onChange={e => setPersonality(e.target.value)}
+                            id="personality" />
+
+                        <label for="birdCount">Bird Count</label>
+                        <input
+                            type="number"
+                            placeholder="Bird count"
+                            value={birdCount}
+                            onChange={e => setBirdCount(e.target.value)}
+                            id="birdCount" />
+
+                        <label for="rodentCount">Rodent Count</label>
+                        <input
+                            type="number"
+                            placeholder="Rodent count"
+                            value={rodentCount}
+                            onChange={e => setRodentCount(e.target.value)}
+                            id="rodentCount" />
 
                         <label for="submit">
                             <button

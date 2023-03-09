@@ -6,6 +6,10 @@ export const EditCatPage = ({ catForEditing }) => {
     const [name, setName] = useState(catForEditing.name);
     const [age, setAge] = useState(catForEditing.age);
     const [breed, setBreed] = useState(catForEditing.breed);
+    const [portraitUrl, setPortraitUrl] = useState(catForEditing.portraitUrl);
+    const [personality, setPersonality] = useState(catForEditing.personality);
+    const [birdCount, setBirdCount] = useState(catForEditing.birdCount);
+    const [rodentCount, setRodentCount] = useState(catForEditing.rodentCount);
 
     const redirect = useNavigate();
 
@@ -15,7 +19,11 @@ export const EditCatPage = ({ catForEditing }) => {
             body: JSON.stringify({
                 name: name,
                 age: age,
-                breed: breed
+                breed: breed,
+                portraitUrl: portraitUrl,
+                personality: personality,
+                birdCount: setBirdCount,
+                rodentCount: rodentCount
             }),
             headers: { 'Content-Type': 'application/json', },
         });
@@ -26,7 +34,11 @@ export const EditCatPage = ({ catForEditing }) => {
             const errMessage = await response.json();
             alert(`Document not edited. Status: ${response.status}. ${errMessage.Error}`);
         }
-        redirect("/");
+        redirect("/cats");
+    }
+
+    const cancelEdit = async () => {
+        redirect("/cats")
     }
 
     return (
@@ -58,12 +70,47 @@ export const EditCatPage = ({ catForEditing }) => {
                             onChange={e => setBreed(e.target.value)}
                             id="breed" />
 
+                        <label for="portraitUrl">Portrait URL</label>
+                        <input
+                            type="text"
+                            value={portraitUrl}
+                            onChange={e => setPortraitUrl(e.target.value)}
+                            id="portraitUrl" />
+
+                        <label for="personality">Personality</label>
+                        <textarea
+                            type="text"
+                            value={personality}
+                            onChange={e => setPersonality(e.target.value)}
+                            id="personality" />
+
+                        <label for="birdCount">Bird Count</label>
+                        <input
+                            type="number"
+                            value={birdCount}
+                            onChange={e => setBirdCount(e.target.value)}
+                            id="birdCount" />
+
+                        <label for="rodentCount">Rodent Count</label>
+                        <input
+                            type="number"
+                            value={rodentCount}
+                            onChange={e => setRodentCount(e.target.value)}
+                            id="rodentCount" />
+
                         <label for="submit">
                             <button
                                 onClick={editCat}
                                 id="submit">
                                 Save
                             </button> updates to the cat collection!</label>
+
+                        <label for="cancel">
+                            <button
+                                onClick={cancelEdit}
+                                id="cancel">
+                                Cancel
+                            </button> edit.</label>
                     </fieldset>
                 </form>
             </article>

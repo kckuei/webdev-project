@@ -9,22 +9,23 @@ function CatPage({ setCatForEditing }) {
     // Use state to bring in the data.
     const [cats, setCats] = useState([]);
 
-    // RETRIEVE the entire list of movies.
+    // RETRIEVE the entire list of cats.
     const loadCats = async () => {
         const response = await fetch('/cats');
         const cats = await response.json();
+        // console.log(cats)
         setCats(cats);
     }
 
 
-    // UPDATE a single movie.
+    // UPDATE a single cat.
     const onEditCat = async cat => {
         setCatForEditing(cat);
-        redirect("/update");
+        redirect("/cats/update");
     }
 
 
-    // DELETE a single movie.
+    // DELETE a single cat.
     const onDeleteCat = async _id => {
         const response = await fetch(`/cats/${_id}`, { method: 'DELETE' });
         if (response.status === 204) {
@@ -36,12 +37,12 @@ function CatPage({ setCatForEditing }) {
         }
     }
 
-    // LOAD all the movies, executes on initial mount.
+    // LOAD all the cats, executes on initial mount.
     useEffect(() => {
         loadCats();
     }, []);
 
-    // DISPLAY the movies.
+    // DISPLAY the cats.
     return (
         <>
             <h2>List of Cats</h2>

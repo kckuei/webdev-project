@@ -37,9 +37,9 @@ function App() {
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/gallery" element={<GalleryPage />} />
               <Route path="/staff" element={<StaffPage />} />
-              <Route path="/cats" element={<CatPage setCat={setCatForEditing} />} />
+              <Route path="/cats" element={<CatPage setCatForEditing={setCatForEditing} />} />
               <Route path="/cats/create" element={<AddCatPage />} />
-              <Route path="/cats/update" element={<EditCatPage catToEdit={catForEditing} />} />
+              <Route path="/cats/update" element={<EditCatPage catForEditing={catForEditing} />} />
               <Route path="/order" element={<OrderPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="*" element={<NotFound />} />
