@@ -1,0 +1,30 @@
+import React from 'react';
+import Cat from './Cat';
+
+function CatList({ cats, onDelete, onEdit }) {
+    return (
+        <table id="cats">
+            <caption>Add and Edit Cats</caption>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Breed</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {cats.map((cat, i) =>
+                    <Cat
+                        cat={cat}
+                        key={i}
+                        onDelete={onDelete}
+                        onEdit={onEdit}
+                    />)}
+            </tbody>
+        </table>
+    );
+}
+
+export default CatList;

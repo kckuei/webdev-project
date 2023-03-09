@@ -2,7 +2,7 @@
 function NotFound() {
     return (
         <>
-            <p>Hmm, there doesn't seem to be anything here.</p>
+            <p><strong>404:</strong> Hmm, there doesn't seem to be anything here.</p>
         </>
     );
 }

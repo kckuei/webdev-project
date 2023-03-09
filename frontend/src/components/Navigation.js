@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 
-function Nav() {
+function Navigation() {
 
     let location = useLocation();
 
@@ -23,6 +23,9 @@ function Nav() {
                 <Link to="/staff" className={setActive("/staff")}>
                     Staff
                 </Link>
+                <Link to="/cats" className={setActive("/cats")}>
+                    Cats
+                </Link>
                 <Link to="/order" className={setActive("/order")}>
                     Order
                 </Link>
@@ -34,4 +37,4 @@ function Nav() {
     );
 }
 
-export default Nav;
+export default Navigation;

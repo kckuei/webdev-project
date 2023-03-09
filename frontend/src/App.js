@@ -1,20 +1,28 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 import HomePage from './pages/HomePage.js';
 import BlogPage from './pages/BlogPage.js';
 import GalleryPage from './pages/GalleryPage.js';
 import StaffPage from './pages/StaffPage.js';
+import CatPage from './pages/CatPage.js';
+import AddCatPage from './pages/AddCatPage.js';
+import EditCatPage from './pages/EditCatPage.js';
 import OrderPage from './pages/OrderPage.js';
 import ContactPage from './pages/ContactPage.js';
-import Navigation from './components/Nav.js';
+import Navigation from './components/Navigation.js';
 import NotFound from './pages/NotFound.js';
 
 
 function App() {
 
+  // Define a top level state for cat to share with the edit page (lifting up state). 
+  const [catForEditing, setCatForEditing] = useState([])
+
   return (
-    <div className="App">
-      <Router>
+    <>
+      <BrowserRouter>
 
         <header>
           <h1>Kevin Kuei</h1>
@@ -29,6 +37,9 @@ function App() {
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/gallery" element={<GalleryPage />} />
               <Route path="/staff" element={<StaffPage />} />
+              <Route path="/cats" element={<CatPage setCat={setCatForEditing} />} />
+              <Route path="/cats/create" element={<AddCatPage />} />
+              <Route path="/cats/update" element={<EditCatPage catToEdit={catForEditing} />} />
               <Route path="/order" element={<OrderPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="*" element={<NotFound />} />
@@ -42,9 +53,8 @@ function App() {
           <p className="footerText">&copy; 2023, Kevin Kuei</p>
         </footer>
 
-      </Router>
-
-    </div >
+      </BrowserRouter>
+    </>
   );
 }
 
