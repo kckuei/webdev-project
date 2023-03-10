@@ -14,6 +14,11 @@ import ContactPage from './pages/ContactPage.js';
 import Navigation from './components/Navigation.js';
 import NotFound from './pages/NotFound.js';
 
+import { MdEngineering } from 'react-icons/md';
+import { GiPotato } from 'react-icons/gi';
+import { FaCodeBranch } from 'react-icons/fa';
+import { RiHeartsFill } from 'react-icons/ri';
+
 
 function App() {
 
@@ -26,7 +31,9 @@ function App() {
 
         <header>
           <h1>Kevin Kuei</h1>
-          <p className="subtitle">Civil Engineer, Coding Amateur, Cat Lover, Couch Potato</p>
+          <p className="subtitle">
+            <MdEngineering />  Civil Engineer  <FaCodeBranch />  Coding Amateur <RiHeartsFill /> Cat Lover  <GiPotato />  Couch Potato
+          </p>
           <Navigation />
         </header>
 

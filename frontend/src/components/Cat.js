@@ -4,7 +4,7 @@ import { MdDeleteForever, MdEdit } from 'react-icons/md';
 function Cat({ cat, onEdit, onDelete }) {
     return (
         <tr>
-            <td><img src={cat.portraitUrl} width="50" /></td>
+            <td><img src={cat.portraitUrl} width="100" alt={cat.name} /></td>
             <td>{cat.name}</td>
             <td>{cat.age}</td>
             <td>{cat.breed}</td>

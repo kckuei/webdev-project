@@ -9,8 +9,8 @@ export const AddCatPage = () => {
     const [breed, setBreed] = useState('');
     const [portraitUrl, setPortraitUrl] = useState('');
     const [personality, setPersonality] = useState('');
-    const [birdCount, setBirdCount] = useState('');
-    const [rodentCount, setRodentCount] = useState('');
+    const [birdCount, setBirdCount] = useState(0);
+    const [rodentCount, setRodentCount] = useState(0);
 
     const redirect = useNavigate();
 
@@ -32,10 +32,10 @@ export const AddCatPage = () => {
         });
         if (response.status === 201) {
             alert(`Document added.`);
-            redirect("/");
+            redirect("/cats");
         } else {
             alert(`Document not added. Status code = ${response.status}`);
-            redirect("/");
+            redirect("/cats");
         }
     };
 
@@ -48,7 +48,7 @@ export const AddCatPage = () => {
                 <form onSubmit={(e) => { e.preventDefault(); }}>
                     <fieldset>
                         <legend>What cat are you adding?</legend>
-                        <label for="name">Name</label>
+                        <label for="name">Name (Required)</label>
                         <input
                             type="text"
                             placeholder="Name of cat"
@@ -56,7 +56,7 @@ export const AddCatPage = () => {
                             onChange={e => setName(e.target.value)}
                             id="name" />
 
-                        <label for="age">Age</label>
+                        <label for="age">Age (Required)</label>
                         <input
                             type="number"
                             value={age}
@@ -64,7 +64,7 @@ export const AddCatPage = () => {
                             onChange={e => setAge(e.target.value)}
                             id="age" />
 
-                        <label for="breed">Breed</label>
+                        <label for="breed">Breed (Required)</label>
                         <input
                             type="text"
                             placeholder="Breed/type of cat"

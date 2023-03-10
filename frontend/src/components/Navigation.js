@@ -1,10 +1,18 @@
 import { Link, useLocation } from 'react-router-dom';
+import { AiOutlineHome } from 'react-icons/ai';
+import { FaCat } from 'react-icons/fa';
+import { TfiGallery } from 'react-icons/tfi';
+import { MdOutlineArticle, MdPeople, MdOutlineShoppingCart, MdMailOutline } from 'react-icons/md'
+
 
 function Navigation() {
 
     let location = useLocation();
 
     function setActive(route_path) {
+        if (location.pathname.includes('/cats') && route_path.includes('/cats')) {
+            return 'active'
+        }
         return (location.pathname === route_path) ? 'active' : ''
     }
 
@@ -12,25 +20,25 @@ function Navigation() {
         <>
             <nav>
                 <Link to="/" className={setActive("/")}>
-                    Home
+                    <AiOutlineHome /> Home
                 </Link>
                 <Link to="/blog" className={setActive("/blog")}>
-                    Blog
+                    <MdOutlineArticle /> Blog
                 </Link>
                 <Link to="/gallery" className={setActive("/gallery")}>
-                    Gallery
+                    <TfiGallery /> Gallery
                 </Link>
                 <Link to="/staff" className={setActive("/staff")}>
-                    Staff
+                    <MdPeople /> Staff
                 </Link>
                 <Link to="/cats" className={setActive("/cats")}>
-                    Cats
+                    <FaCat /> Cats
                 </Link>
                 <Link to="/order" className={setActive("/order")}>
-                    Order
+                    <MdOutlineShoppingCart /> Order
                 </Link>
                 <Link to="/contact" className={setActive("/contact")}>
-                    Contact
+                    <MdMailOutline /> Contact
                 </Link>
             </nav>
         </>

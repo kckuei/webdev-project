@@ -2,18 +2,20 @@
 import ProductQuantity from './ProductQuantity';
 
 
-function ProductRow(props, key) {
-
-    function convertCurr(num) {
-        return num.toLocaleString("en-US", { style: "currency", currency: "USD" })
-    }
+function ProductRow({ key, product, orderItems, setOrderItems, setOrderTotal, convertCurr }) {
 
     return (
         <tr key={key}>
-            <td>{props.company}</td>
-            <td>{props.product}</td>
-            <td>{convertCurr(props.price)}</td>
-            <td>{props.quantity}<ProductQuantity /></td>
+            <td>{product.company}</td>
+            <td>{product.product}</td>
+            <td>{convertCurr(product.price)}</td>
+            <td>{product.quantity}<ProductQuantity
+                product={product.product}
+                orderItems={orderItems}
+                setOrderItems={setOrderItems}
+                setOrderTotal={setOrderTotal}
+            />
+            </td>
         </tr>
     );
 }
