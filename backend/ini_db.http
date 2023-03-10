@@ -1,3 +1,7 @@
+# https://photos.app.goo.gl/PGCdwQUCT2WedJZz8
+# https://photos.app.goo.gl/8viRrWA4MGaqmSNW6
+
+
 ### CREATE initial documents.
 ### CREATE 1
 POST http://localhost:3000/cats HTTP/1.1
@@ -7,10 +11,10 @@ content-type: application/json
     "name": "Maximillian Desmus Meredius (Maxxie)",
     "age": 10,
     "breed": "Golden Manx",
-    "portraitUrl": "https://photos.app.goo.gl/PGCdwQUCT2WedJZz8",
+    "portraitUrl": "https://lh3.googleusercontent.com/pw/AMWts8CEilw1uqx_DUc9GG7JuBooahr_M7rXOUKjHx_iU2QGPSH8HG4ZkkChgWKNQ2YhdOzsLPx03TYxo7f6pN27cTaoTFNcaK3TTNDYqXghg8u09nBSkYlRdP9knqd5uSN8b9e2-4ig9ic9hlXeHQIE4FjhEg=w987-h683-no?authuser=0",
     "personality": "Affectionate, Dog-Like Mannerisms, Hunter-Seeker",
-    "ratKills": 2,
-    "birdKills": 7
+    "rodentCount": 2,
+    "birdCount": 7
 }
 
 ### CREATE 2
@@ -21,10 +25,10 @@ content-type: application/json
     "name": "Blackie",
     "age": 3,
     "breed": "Void Cat",
-    "portraitUrl": "https://photos.app.goo.gl/8viRrWA4MGaqmSNW6",
+    "portraitUrl": "https://lh3.googleusercontent.com/pw/AMWts8AZFqpSaZ8TALoIsrRnr4pdOxY9j74j3sqfhR9h99lc8AIoLI7xZYD-gAkzDR-wUgeEuvA_r_FjDFCbCAJk20j0YOlBsemX1FX6hjkkMn-TvmSuaZ1aEO8wVXoo48vM5VaqNx_KROyuIiOp_LJwQ1RJvg=w1215-h683-no?authuser=0",
     "personality": "Skiddish, Shy, Hard to Photograph",
-    "ratKills": 1,
-    "birdKills": 0
+    "rodentCount": 1,
+    "birdCount": 0
 }
 
 ### CREATE 3
@@ -37,8 +41,64 @@ content-type: application/json
     "breed": "Magic Cat",
     "portraitUrl": "https://easydrawingguides.com/wp-content/uploads/2022/04/Jiji-Cat-step-by-step-drawing-tutorial-step-10.png",
     "personality": "Chatty, Sarcastic, Proud, Speaks Japanese",
-    "ratKills": 0,
-    "birdKills": 0
+    "rodentCount": 0,
+    "birdCount": 0
+}
+
+### CREATE 4
+POST http://localhost:3000/cats HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Chessur",
+    "age": 245,
+    "breed": "Cheshire Cat",
+    "portraitUrl": "https://easydrawingguides.com/wp-content/uploads/2018/10/Cheshire-Cat-10.png",
+    "personality": "Mischievous, Unpredictable",
+    "rodentCount": 0,
+    "birdCount": 0
+}
+
+### CREATE 5
+POST http://localhost:3000/cats HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Test Loaf 1",
+    "age": 5,
+    "breed": "Bread Cat",
+    "portraitUrl": "https://assets2.cbsnewsstatic.com/hub/i/r/2012/02/06/1feb58ce-a644-11e2-a3f0-029118418759/thumbnail/620x465/ba3d05280d71c50fbdb8d09842959a01/breading-cats-025.jpg",
+    "personality": "",
+    "rodentCount": 0,
+    "birdCount": 0
+}
+
+### CREATE 6
+POST http://localhost:3000/cats HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Test Loaf 2",
+    "age": 6,
+    "breed": "Melon Head Cat",
+    "portraitUrl": "https://www.reallycutecats.com/wp-content/uploads/2012/01/catmelonhead.jpg",
+    "personality": "",
+    "rodentCount": 1,
+    "birdCount": 1
+}
+
+### CREATE 7
+POST http://localhost:3000/cats HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Test Loaf 3",
+    "age": 7,
+    "breed": "Melon Lips Cat",
+    "portraitUrl": "https://preview.redd.it/3j61a3bslky41.jpg?auto=webp&s=8e326647ffce0122f76dde2242480ffc3a42b3c7",
+    "personality": "",
+    "rodentCount": 0,
+    "birdCount": 1
 }
 
 
