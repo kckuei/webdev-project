@@ -10,34 +10,29 @@ function ProductQuantity({ product, orderItems, setOrderItems, setOrderTotal }) 
     const [quantity, setQuantity] = useState(0);
 
     // Matches product with product name.
-    const findProduct = () => {
-        const prod = products.filter((obj) => {
-            return obj.product === product;
-        });
-        return prod[0]
+    const findProduct = (name) => {
+        const arr = products.filter((obj) => { return obj.product === name; });
+        return arr[0]
     }
 
     // Updates product total.
     const updateTotal = () => {
-        let total = 0;
-        for (let prod of Object.keys(orderItems)) {
-            let quantity = orderItems[prod];
-            let price = findProduct(prod).price;
-            total += quantity * price;
-        }
+        const keys = Object.keys(orderItems);
+        const costs = keys.map((key) => { return orderItems[key] * findProduct(key).price });
+        const total = costs.reduce((acc, currentValue) => acc + currentValue, 0);
         return total
     };
 
     // Quantity incrementer for updating state.
     const increaser = () => {
-        if (quantity + 1 < 11) {
+        if (quantity < 10) {
             setQuantity(quantity + 1);
 
-            const product = findProduct().product;
-            if (isNaN(orderItems[product])) {
-                orderItems[product] = 0;
+            const key = findProduct(product).product;
+            if (isNaN(orderItems[key])) {
+                orderItems[key] = 0;
             }
-            orderItems[product] += 1
+            orderItems[key] += 1
 
             // Update order item and total states.
             setOrderItems(orderItems);
@@ -47,14 +42,14 @@ function ProductQuantity({ product, orderItems, setOrderItems, setOrderTotal }) 
 
     // Quantity decrementer for updating state.
     const decreaser = () => {
-        if (quantity - 1 > -1) {
+        if (quantity > 0) {
             setQuantity(quantity - 1);
 
-            const product = findProduct().product;
-            if (isNaN(orderItems[product])) {
-                orderItems[product] = 0;
+            const key = findProduct(product).product;
+            if (isNaN(orderItems[key])) {
+                orderItems[key] = 0;
             }
-            orderItems[product] -= 1
+            orderItems[key] -= 1
 
             // Update order item and total states.
             setOrderItems(orderItems);

@@ -13,8 +13,8 @@ function OrderedTable({ prod, count, convertCurr }) {
     return <>
         <tr>
             <td>{prod}</td>
-            <td>{count}</td>
             <td>{convertCurr(findProduct(prod).price)}</td>
+            <td>{count}</td>
             <td>{convertCurr(findProduct(prod).price * count)}</td>
         </tr>
     </>

@@ -17,7 +17,16 @@ function Order() {
     const [submitted, setSubmitted] = useState(false);
 
     // Use state for form data.
-    const [formData, setFormData] = useState({});
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phoneNumber: '',
+        shippingAddress: '',
+        deliveryInstructions: '',
+        creditCardNumber: '',
+        ccvCode: '',
+        postalCode: ''
+    });
 
     // Update form data state object on edit.
     const updateFormData = (e) => {
@@ -34,13 +43,41 @@ function Order() {
     const onSubmitOrder = (e) => {
         e.preventDefault();
 
-        if (orderTotal == 0) {
+        // Validation before return.
+        if (orderTotal === 0) {
             alert("Please select an item to order.");
             return
         }
+        // if (formData.name === '') {
+        //     alert("Please enter a name.");
+        //     return
+        // }
+        // if (formData.email === '') {
+        //     alert("Please enter an email address.");
+        //     return
+        // }
+        // if (formData.phoneNumber === '') {
+        //     alert("Please enter a phome number.");
+        //     return
+        // }
+        // if (formData.shippingAddress === '') {
+        //     alert("Please enter a shipping address.");
+        //     return
+        // }
+        // if (formData.creditCardNumber === '') {
+        //     alert("Please enter a credit card number.");
+        //     return
+        // }
+        // if (formData.ccvCode === '') {
+        //     alert("Please enter a CCV code.");
+        //     return
+        // }
+        // if (formData.postalCode === '') {
+        //     alert("Please enter a postal code.");
+        //     return
+        // }
 
-        // PLACEHOLDER. 
-        // CODE FOR SENDING EMAIL AND/OR POSTING TO EXPRESS SERVER HERE.
+        // PLACEHOLDER FOR SENDING EMAIL AND/OR POSTING TO EXPRESS SERVER HERE.
 
         // Set submitted state to display thank you/order confirmation.
         setSubmitted(true);
@@ -62,8 +99,8 @@ function Order() {
                     <thead>
                         <tr>
                             <th>Item</th>
-                            <th>Quantity</th>
                             <th>Unit Price</th>
+                            <th>Quantity</th>
                             <th>Subtotal</th>
                         </tr>
                     </thead>
@@ -113,64 +150,79 @@ function Order() {
                     <p>Order Total: {convertCurr(Math.max(0, orderTotal))}</p>
                     <fieldset>
                         <legend>Contact Details</legend>
-                        <label for="name">Name</label>
+                        <label for="name">Name (Required)</label>
                         <input
                             type="text"
                             id="name"
+                            placeholder="First and last name"
                             onChange={updateFormData}
+                            required
                         />
 
-                        <label for="email">Email</label>
+                        <label for="email">Email (Required)</label>
                         <input
                             type="text"
                             id="email"
+                            placeholder="name@host.com"
                             onChange={updateFormData}
+                            required
                         />
 
 
-                        <label for="phoneNumber">Phone Number</label>
+                        <label for="phoneNumber">Phone Number (Required)</label>
                         <input
                             type="text"
                             id="phoneNumber"
+                            placeholder="555-420-13337"
                             onChange={updateFormData}
+                            required
                         />
 
-                        <label for="shippingAddress">Shipping Address</label>
-                        <input
+                        <label for="shippingAddress">Shipping Address (Required)</label>
+                        <textarea
                             type="text"
                             id="shippingAddress"
+                            placeholder="The Dude (Big Lebowski)&#10;123 Imaginary Lane&#10;Venice, CA 95811"
                             onChange={updateFormData}
+                            required
                         />
 
-                        <label for="deliveryInstructions">Delivery Instructions</label>
-                        <input
+                        <label for="deliveryInstructions">Delivery Instructions (Optional)</label>
+                        <textarea
                             type="text"
                             id="deliveryInstructions"
+                            placeholder="Request special delivery instructions."
                             onChange={updateFormData}
                         />
                     </fieldset>
 
                     <fieldset>
                         <legend>Payment Details</legend>
-                        <label for="creditCardNumber">Credit Card Number</label>
+                        <label for="creditCardNumber">Credit Card Number (Required)</label>
                         <input
                             type="text"
                             id="creditCardNumber"
+                            placeholder="4921794022636084"
                             onChange={updateFormData}
+                            required
                         />
 
-                        <label for="ccvCode">CCV Code</label>
+                        <label for="ccvCode">CCV Code (Required)</label>
                         <input
                             type="text"
                             id="ccvCode"
+                            placeholder="991"
                             onChange={updateFormData}
+                            required
                         />
 
-                        <label for="postalCode">Postal Code</label>
+                        <label for="postalCode">Postal Code (Required)</label>
                         <input
                             type="text"
                             id="postalCode"
+                            placeholder="95811"
                             onChange={updateFormData}
+                            required
                         />
                     </fieldset>
 

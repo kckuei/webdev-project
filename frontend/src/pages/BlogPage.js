@@ -1,13 +1,22 @@
+import { useState } from 'react';
 import { CopyBlock, dracula } from "react-code-blocks";
 import codeBlocks from "../scripts/codeBlocks.js"
 import BookmarkNav from '../components/BookmarkNav.js'
 
 
 function Blog() {
+
+    const [activeArticle, setActiveArticle] = useState('article-1');
+
+    const isActive = (articleName) => {
+        console.log(articleName);
+        return articleName === activeArticle
+    };
+
     return (
         <>
-            <BookmarkNav />
-            <article id="article-1">
+            <BookmarkNav activeArticle={activeArticle} setActiveArticle={setActiveArticle} />
+            {isActive('article-1') && <article id="article-1">
                 <h3>About Web Servers</h3>
                 <h4>Creation and Viewing index.html Locally</h4>
                 <p>
@@ -27,8 +36,8 @@ function Blog() {
                 <h4>HTTP Request/Response from OSU Eng. File Space</h4>
                 <p>
                     I copied this assignment folder securely to the OSU engineering file space
-                    via SSH/SCP. This makes the assignment available at the following
-                    <a href=" https://web.engr.oregonstate.edu/~kueik/a1-kueik/">URL</a>. The 'index.html'
+                    via SSH/SCP. This makes the assignment available at the
+                    following <a href=" https://web.engr.oregonstate.edu/~kueik/a1-kueik/">URL</a>. The 'index.html'
                     file is the default name for a 'home' page of a website hosted on the Apache web server,
                     which is what OSU's Engineering server is using.
                 </p>
@@ -60,9 +69,9 @@ function Blog() {
                     <li><strong>oregonstate.edu</strong> is the host domain</li>
                     <li><strong>/~kueik/a1-kueik/</strong> is the specific resource requested</li>
                 </ul>
-            </article>
+            </article>}
 
-            <article id="article-2">
+            {isActive('article-2') && <article id="article-2">
                 <h3>Frontend Design</h3>
                 <h4>What is Frontend Design?</h4>
                 <p>
@@ -154,9 +163,9 @@ function Blog() {
                     wrapLines={true}
                     codeBlock={true}
                 />
-            </article>
+            </article>}
 
-            <article id="article-3">
+            {isActive('article-3') && <article id="article-3">
                 <h3>Optimizing Images</h3>
                 <h4>Image Optimization</h4>
                 <p>
@@ -246,9 +255,9 @@ function Blog() {
                     wrapLines={true}
                     codeBlock={true}
                 />
-            </article>
+            </article>}
 
-            <article id="article-4">
+            {isActive('article-4') && <article id="article-4">
                 <h3>Cascading Stylesheets</h3>
                 <h4>Reasons to Incorporate Stylesheets in Websites and apps</h4>
                 <p>The main reasons to incorporate stylesheets into websites and apps is to keep your code
@@ -312,9 +321,9 @@ function Blog() {
                         &lt;nav&gt;, &lt;section&gt;, &lt;articles&gt;, &lt;aside&gt;, &lt;footer&gt;, &lt;summary&gt;</code>,
                     etc.
                 </p>
-            </article>
+            </article>}
 
-            <article id="article-5">
+            {isActive('article-5') && <article id="article-5">
                 <h3>Forms</h3>
                 <h4>Form Accessibility Goals</h4>
                 <p>
@@ -465,9 +474,9 @@ function Blog() {
                     <li>Change the visual appearance for invalid input.</li>
                     <li>Update contrasts when using hover/focus affects to improve readability.</li>
                 </ul>
-            </article>
+            </article>}
 
-            <article id="article-6">
+            {isActive('article-6') && <article id="article-6">
                 <h3>Node, npm, and Express</h3>
                 <p>Node, npm, and Express are three technologies that are used to improve the web development
                     experience.
@@ -494,9 +503,9 @@ function Blog() {
                     functions and has its own way of structuring projects as to streamline the development process.
                 </p>
 
-            </article>
+            </article>}
 
-            <article id="article-7">
+            {isActive('article-7') && <article id="article-7">
                 <h3>JavaScript Primer</h3>
                 <h4>Data Types, Objects, Arrays</h4>
                 <p>
@@ -731,9 +740,9 @@ function Blog() {
                     another function, or returned from other functions. The built-in Array methods <code>.map</code>,
                     <code>.reduce</code>, and <code>.filter</code> are examples of higher order functions.
                 </p>
-            </article>
+            </article>}
 
-            <article id="article-8">
+            {isActive('article-8') && <article id="article-8">
                 <h3>One DOM to Rule them All</h3>
                 <p>
                     Who is DOM? Is he related to JSON? Or are we talking about DOM(inic) Toretto from the Fast and
@@ -785,7 +794,7 @@ function Blog() {
                     Check out the Staff page demo as an example of how JavaScript, Express,
                     and the DOM can be used to dynamically update a page with random data.
                 </p>
-            </article>
+            </article>}
 
         </>
     );
