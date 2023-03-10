@@ -9,7 +9,7 @@ and basic CRUD operations.
 // Import dependencies.
 import mongoose from 'mongoose';
 import 'dotenv/config';
-
+mongoose.set('strictQuery', true);
 
 // ====================== CONNECTION ======================
 // Connect to Atlast cluster or local MongoDB based on the 
@@ -37,10 +37,10 @@ const catSchema = mongoose.Schema({
     name: { type: String, required: true },
     age: { type: Number, required: true },
     breed: { type: String, required: true },
-    portrait_url: { type: String, required: false },
+    portraitUrl: { type: String, required: false },
     personality: { type: String, required: false },
-    rat_kills: { type: Number, required: false },
-    bird_kills: { type: Number, required: false }
+    rodentCount: { type: Number, required: false },
+    birdCount: { type: Number, required: false }
 });
 
 // Compile the model from the schema.
@@ -50,15 +50,15 @@ const Cat = mongoose.model('Cat', catSchema);
 // ====================== CREATE MODELS ======================
 // CREATE model 
 const createCat = async (name, age, breed,
-    portrait_url, personality, rat_kills, bird_kills) => {
+    portraitUrl, personality, rodentCount, birdCount) => {
     const cat = new Cat({
         name: name,
         age: age,
         breed: breed,
-        portrait_url: portrait_url,
+        portraitUrl: portraitUrl,
         personality: personality,
-        rat_kills: rat_kills,
-        bird_kills: bird_kills
+        rodentCount: rodentCount,
+        birdCount: birdCount
     });
     return cat.save();
 };
@@ -94,25 +94,25 @@ const deleteCatByProperty = async (filter) => {
 // ====================== UPDATE MODELS ======================
 // UPDATE model
 const updateCat = async (_id, name, age, breed,
-    portrait_url, personality, rat_kills, bird_kills) => {
+    portraitUrl, personality, rodentCount, birdCount) => {
     const result = await Cat.replaceOne({ _id: _id }, {
         name: name,
         age: age,
         breed: breed,
-        portrait_url: portrait_url,
+        portraitUrl: portraitUrl,
         personality: personality,
-        rat_kills: rat_kills,
-        bird_kills: bird_kills
+        rodentCount: rodentCount,
+        birdCount: birdCount
     });
     return {
         _id: _id,
         name: name,
         age: age,
         breed: breed,
-        portrait_url: portrait_url,
+        portraitUrl: portraitUrl,
         personality: personality,
-        rat_kills: rat_kills,
-        bird_kills: bird_kills
+        rodentCount: rodentCount,
+        birdCount: birdCount
     }
 }
 
