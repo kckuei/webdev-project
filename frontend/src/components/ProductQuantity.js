@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-// import { MdArrowCircleDown, MdArrowCircleUp } from 'react-icons/md';
-import { FaRegHandPointUp, FaRegHandPointDown } from "react-icons/fa";
+import { BiUpArrow, BiDownArrow } from 'react-icons/bi';
 import products from '../data/products.js'
 
 
@@ -61,15 +60,15 @@ function ProductQuantity({ product, orderItems, setOrderItems, setOrderTotal }) 
         <div className="quantityBox">
             <div className="quantity">{quantity}</div>
             <div className="incrementerBox">
-                <FaRegHandPointUp
+                <BiUpArrow
                     className="incrementer"
-                    size={30}
+                    size={25}
                     onClick={increaser}
                     on
                 />
-                <FaRegHandPointDown
+                <BiDownArrow
                     className="incrementer"
-                    size={30}
+                    size={25}
                     onClick={decreaser} />
             </div>
         </div>

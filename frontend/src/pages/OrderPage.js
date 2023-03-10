@@ -40,44 +40,55 @@ function Order() {
     };
 
     // Submit POST request with form and order info.
-    const onSubmitOrder = (e) => {
+    const onSubmitOrder = async (e) => {
         e.preventDefault();
 
-        // Validation before return.
+        // Simple form validation.
         if (orderTotal === 0) {
             alert("Please select an item to order.");
             return
         }
-        // if (formData.name === '') {
-        //     alert("Please enter a name.");
-        //     return
-        // }
-        // if (formData.email === '') {
-        //     alert("Please enter an email address.");
-        //     return
-        // }
-        // if (formData.phoneNumber === '') {
-        //     alert("Please enter a phome number.");
-        //     return
-        // }
-        // if (formData.shippingAddress === '') {
-        //     alert("Please enter a shipping address.");
-        //     return
-        // }
-        // if (formData.creditCardNumber === '') {
-        //     alert("Please enter a credit card number.");
-        //     return
-        // }
-        // if (formData.ccvCode === '') {
-        //     alert("Please enter a CCV code.");
-        //     return
-        // }
-        // if (formData.postalCode === '') {
-        //     alert("Please enter a postal code.");
-        //     return
-        // }
+        if (formData.name === '') {
+            alert("Please enter a name.");
+            return
+        }
+        if (formData.email === '') {
+            alert("Please enter an email address.");
+            return
+        }
+        if (formData.phoneNumber === '') {
+            alert("Please enter a phome number.");
+            return
+        }
+        if (formData.shippingAddress === '') {
+            alert("Please enter a shipping address.");
+            return
+        }
+        if (formData.creditCardNumber === '') {
+            alert("Please enter a credit card number.");
+            return
+        }
+        if (formData.ccvCode === '') {
+            alert("Please enter a CCV code.");
+            return
+        }
+        if (formData.postalCode === '') {
+            alert("Please enter a postal code.");
+            return
+        }
 
-        // PLACEHOLDER FOR SENDING EMAIL AND/OR POSTING TO EXPRESS SERVER HERE.
+        // Post the order & form data to the express server for email forwarding/confirmation.
+        const data = { formData, orderItems, orderTotal };
+        const response = await fetch('/order', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+        });
+        if (response.status === 204) {
+            console.log('Successfully posted order data.');
+        } else {
+            console.error('Failed to send order data.');
+        }
 
         // Set submitted state to display thank you/order confirmation.
         setSubmitted(true);
@@ -93,6 +104,7 @@ function Order() {
         <>
             <h2>Order</h2>
             {submitted && <div>
+                <p className="description"><Link onClick={refreshOrderForm}>Click here to place a new order here.</Link></p>
                 <p className="description">Thanks for your order {formData.name}! You will recieve a confirmation email shortly at {formData.email}!</p>
                 <p className="description">Your order details are as follows:</p>
                 <table>
@@ -117,7 +129,6 @@ function Order() {
                 <p className="description">Order Total: {convertCurr(orderTotal)}</p>
                 <p className="description">Shipping Address: {formData.shippingAddress}</p>
                 <p className="description">Delivery Instructions: {formData.deliveryInstructions}</p>
-                <p className="description"><Link onClick={refreshOrderForm}>Click here to place a new order here.</Link></p>
             </div>}
             {!submitted && <p className="description">Please consider placing an order with us! Although our prices may seem astronomically gargantuan, all proceeds go to the Adopt-A-Kitty 🐱 and Make-A-Puppy-Wag-It's-Tail 🐶 society!</p>}
             {!submitted && <article>

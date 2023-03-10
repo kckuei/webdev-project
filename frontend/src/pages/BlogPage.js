@@ -6,8 +6,11 @@ import BookmarkNav from '../components/BookmarkNav.js'
 
 function Blog() {
 
+    // Use state for tracking the active article. 
+    // Used in BookmarkNav component. 
     const [activeArticle, setActiveArticle] = useState('article-1');
 
+    // For toggling active article visibility.
     const isActive = (articleName) => {
         console.log(articleName);
         return articleName === activeArticle
@@ -15,7 +18,11 @@ function Blog() {
 
     return (
         <>
-            <BookmarkNav activeArticle={activeArticle} setActiveArticle={setActiveArticle} />
+            <h2>Articles</h2>
+            <BookmarkNav
+                activeArticle={activeArticle}
+                setActiveArticle={setActiveArticle}
+            />
             {isActive('article-1') && <article id="article-1">
                 <h3>About Web Servers</h3>
                 <h4>Creation and Viewing index.html Locally</h4>

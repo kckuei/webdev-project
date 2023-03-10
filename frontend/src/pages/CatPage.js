@@ -17,13 +17,11 @@ function CatPage({ setCatForEditing }) {
         setCats(cats);
     }
 
-
     // UPDATE a single cat.
     const onEditCat = async cat => {
         setCatForEditing(cat);
         redirect("/cats/update");
     }
-
 
     // DELETE a single cat.
     const onDeleteCat = async _id => {
@@ -45,8 +43,8 @@ function CatPage({ setCatForEditing }) {
     // DISPLAY the cats.
     return (
         <>
-            <h2>List of Cats</h2>
-            <p>Paragraph about this page.</p>
+            <h2>Cats</h2>
+            <p>Perform CRUD operations using our REST API.</p>
             <p><Link to="/cats/create" >Add a Cat</Link></p>
             <CatList
                 cats={cats}

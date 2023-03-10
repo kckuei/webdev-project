@@ -26,7 +26,7 @@ export const EditCatPage = ({ catForEditing }) => {
                 breed: breed,
                 portraitUrl: portraitUrl,
                 personality: personality,
-                birdCount: setBirdCount,
+                birdCount: birdCount,
                 rodentCount: rodentCount
             }),
             headers: { 'Content-Type': 'application/json', },

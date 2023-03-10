@@ -11,8 +11,12 @@ function Cat({ cat, onEdit, onDelete }) {
             <td>{cat.personality}</td>
             <td>{cat.birdCount}</td>
             <td>{cat.rodentCount}</td>
-            <td><MdDeleteForever onClick={() => onDelete(cat._id)} /></td>
-            <td><MdEdit onClick={() => onEdit(cat)} /></td>
+            <td><MdDeleteForever
+                onClick={() => onDelete(cat._id)}
+                size={25} /></td>
+            <td><MdEdit
+                onClick={() => onEdit(cat)}
+                size={25} /></td>
         </tr>
     );
 }
