@@ -44,7 +44,7 @@ export const AddCatPage = () => {
         <>
             <article>
                 <h2 className="pageTitle">Add Cat</h2>
-                <p>Add a cat to the collection</p>
+                <p>Add a cat to the collection.</p>
                 <form onSubmit={(e) => { e.preventDefault(); }}>
                     <fieldset>
                         <legend>What cat are you adding?</legend>
@@ -108,16 +108,20 @@ export const AddCatPage = () => {
                             <button
                                 type="submit"
                                 onClick={addCat}
-                                id="submit">
-                                Add
-                            </button> to the cat collection!</label>
+                                id="submit"
+                                class="submitButton">
+                                Add cat
+                            </button>
+                        </label>
 
                         <label for="cancel">
                             <button
                                 onClick={() => { redirect("/cats") }}
-                                id="cancel">
+                                id="cancel"
+                                class="cancelButton">
                                 Cancel
-                            </button> edit.</label>
+                            </button>
+                        </label>
                     </fieldset>
                 </form>
             </article>

@@ -19,7 +19,7 @@ function Blog() {
     return (
         <>
             <h2 className="pageTitle">Articles</h2>
-            <p className="description">Read about web development. A collection of article assignments over the quarter.</p>
+            <p className="pageSubtitle">Read from a collection of web development article assignments.</p>
             <BookmarkNav
                 activeArticle={activeArticle}
                 setActiveArticle={setActiveArticle}

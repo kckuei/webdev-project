@@ -33,7 +33,7 @@ function Staff() {
             // Otherwise call random person API through server endpoint.
             const response = await fetch("/random");
 
-            if (response.status == 200) {
+            if (response.status === 200) {
                 // If response status is good, then parse the JSON.
                 const stringData = await response.json();
                 const data = JSON.parse(stringData);
@@ -51,15 +51,12 @@ function Staff() {
     return (
         <>
             <h2 className="pageTitle">Staff</h2>
-            <p className="description">
-                Hire new staff with the <a href="https://randomuser.me/">Random Person API</a>!
-                Clicking the button triggers the <strong><code>onClick</code></strong> callback
-                which fires off an asynchronous request to the API.
-                A response with 200 status causes the results state to be updated using the
-                React <strong><code>useState</code></strong> hook.
-                The change in state of the component then automatically triggers re-rendering of the page.
-                To keep the initial staff consistent on page reloads, we use
-                the <strong><code>useEffect</code></strong> hook to call the API with a seed value on initial load.
+            <p className="pageSubtitle">
+                Hire new staff by asynchronously calling the <strong><a href="https://randomuser.me/">Random Person API</a></strong>!
+                Two flavors are available. The first button calls the API through the browser. The second button
+                sends a request to an endpoint of our backend, which calls the API and forwards the data back to
+                the browser. Changes in state trigger page re-renders using the React <strong><code>useState</code></strong>
+                and <strong><code>useEffect</code></strong> hooks.
             </p>
             <article>
                 <div className="buttonContainer">
@@ -75,7 +72,7 @@ function Staff() {
                     </button>
                 </div>
                 <div className="staffTableContainer">
-                    <table id="staff">
+                    <table id="staff" className="customTable">
                         <caption>Staff Directory</caption>
                         <thead id="tableHead">
                             <tr>

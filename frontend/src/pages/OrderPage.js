@@ -103,11 +103,16 @@ function Order() {
     return (
         <>
             <h2 className="pageTitle">Order</h2>
-            {submitted && <div>
-                <p className="description"><Link onClick={refreshOrderForm}>Click here to place a new order here.</Link></p>
-                <p className="description">Thanks for your order {formData.name}! You will recieve a confirmation email shortly at {formData.email}!</p>
-                <p className="description">Your order details are as follows:</p>
-                <table>
+            {submitted && <article>
+                <caption>
+                    <p><Link onClick={refreshOrderForm}>Place a New Order</Link></p>
+                </caption>
+                <p >
+                    Thanks for your order <strong>{formData.name}</strong>!
+                    You will recieve a confirmation email shortly at <strong>{formData.email}</strong>!
+                </p>
+                <p >Your order details are as follows:</p>
+                <table className="customTable">
                     <thead>
                         <tr>
                             <th>Item</th>
@@ -126,14 +131,18 @@ function Order() {
                             />)}
                     </tbody>
                 </table>
-                <p className="description">Order Total: {convertCurr(orderTotal)}</p>
-                <p className="description">Shipping Address: {formData.shippingAddress}</p>
-                <p className="description">Delivery Instructions: {formData.deliveryInstructions}</p>
-            </div>}
-            {!submitted && <p className="description">Place an order with us! Our prices may seem unreasonably astronomical (it is), but all proceeds go to the Adopt-A-Kitty 🐱 and Make-A-Puppy-Wag-It's-Tail 🐶 society!</p>}
-            {!submitted && <p className="description">Updates your order total, then posts your order to our backend, which send a confirmation to you and our records using nodemailer and the SendInBlue API.</p>}
+                <p className="orderTotalText">Order Total: {convertCurr(orderTotal)}</p>
+                <p >Shipping Address: {formData.shippingAddress}</p>
+                <p >Delivery Instructions: {formData.deliveryInstructions}</p>
+            </article>}
+            {!submitted && <p className="pageSubtitle">
+                Place an order with us! Proceeds go to the Make-A-Wish-For-Kitty🐱 foundation!
+                Sends a <strong>POST</strong> request to an endpoint in our backend that
+                forwards confirmation emails with <strong>nodemailer</strong> &
+                the <strong>SendInBlue</strong> API.
+            </p>}
             {!submitted && <article>
-                <table className="orderTable">
+                <table id="order" className="customTable">
                     <caption>
                         Products
                     </caption>
@@ -159,14 +168,15 @@ function Order() {
                 </table>
                 <fieldset>
                     <legend>Your Order</legend>
-                    <p>Order Total: {convertCurr(Math.max(0, orderTotal))}</p>
-                    <fieldset>
+                    <p className="orderTotalText">Order Total: {convertCurr(Math.max(0, orderTotal))}</p>
+                    <fieldset className="innerFieldset">
                         <legend>Contact Details</legend>
                         <label for="name">Name (Required)</label>
                         <input
                             type="text"
                             id="name"
                             placeholder="First and last name"
+                            size="30"
                             onChange={updateFormData}
                             required
                         />
@@ -176,6 +186,7 @@ function Order() {
                             type="text"
                             id="email"
                             placeholder="name@host.com"
+                            size="30"
                             onChange={updateFormData}
                             required
                         />
@@ -186,6 +197,7 @@ function Order() {
                             type="text"
                             id="phoneNumber"
                             placeholder="555-420-13337"
+                            size="30"
                             onChange={updateFormData}
                             required
                         />
@@ -208,12 +220,13 @@ function Order() {
                         />
                     </fieldset>
 
-                    <fieldset>
+                    <fieldset className="innerFieldset">
                         <legend>Payment Details</legend>
                         <label for="creditCardNumber">Credit Card Number (Required)</label>
                         <input
                             type="text"
                             id="creditCardNumber"
+                            size="30"
                             placeholder="4921794022636084"
                             onChange={updateFormData}
                             required
@@ -224,6 +237,7 @@ function Order() {
                             type="text"
                             id="ccvCode"
                             placeholder="991"
+                            size="15"
                             onChange={updateFormData}
                             required
                         />
@@ -233,12 +247,13 @@ function Order() {
                             type="text"
                             id="postalCode"
                             placeholder="95811"
+                            size="15"
                             onChange={updateFormData}
                             required
                         />
                     </fieldset>
 
-                    <button onClick={onSubmitOrder}>
+                    <button onClick={onSubmitOrder} className="orderButton">
                         Submit Order
                     </button>
                 </fieldset>

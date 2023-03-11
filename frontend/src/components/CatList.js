@@ -1,11 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Cat from './Cat';
 
 function CatList({ cats, onDelete, onEdit }) {
     return (
         <article>
-            <table id="cats">
-                <caption>Add and Edit Cats</caption>
+            <table id="cats" className="customTable">
+                <caption>Add and Edit Cats in the Catabase
+
+                    <p><Link to="/cats/create" >Add a Cat</Link></p>
+                </caption>
                 <thead>
                     <tr>
                         <th>Portait</th>

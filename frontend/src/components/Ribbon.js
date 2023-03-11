@@ -7,13 +7,13 @@ function Ribbon() {
         <>
             <div className="ribbonContainer">
                 <a href="https://www.linkedin.com/in/kevinkuei" target="_blank" rel="noreferrer">
-                    <RxLinkedinLogo className="ribbonIcons" size="25" />
+                    <RxLinkedinLogo className="ribbonIcons" size="30" />
                 </a>
                 <a href="https://github.com/kckuei" target="_blank" rel="noreferrer">
-                    <VscGithubInverted className="ribbonIcons" size="25" />
+                    <VscGithubInverted className="ribbonIcons" size="30" />
                 </a>
                 <a href="https://twitter.com/kckuei/with_replies" target="_blank" rel="noreferrer">
-                    <VscTwitter className="ribbonIcons" size="25" />
+                    <VscTwitter className="ribbonIcons" size="30" />
                 </a>
             </div>
         </>)

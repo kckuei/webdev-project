@@ -70,7 +70,10 @@ function Contact() {
     return (
         <>
             <h2 className="pageTitle">Contact Us</h2>
-            <p>Tell us what you think by sending a message using MailJS through the browser.</p>
+            <p className="pageSubtitle">
+                Share your thoughts by sending a message through the browser
+                with <strong>MailJS</strong> API.
+            </p>
             <article>
                 {submitting &&
                     <div>
@@ -84,15 +87,16 @@ function Contact() {
                 }
                 <form ref={form} onSubmit={sendEmail}>
                     <fieldset>
-                        <label>Name</label>
+                        <legend>Tell us what you think!</legend>
+                        <label>Name (Required)</label>
                         <input type="text" name="name"
                             size="30" maxLength="100" required
-                            placeholder='First and Last Name'
+                            placeholder='First and last name'
                             onChange={handleChange}
                             value={formData.name || ''}
                             autoFocus
                         />
-                        <label>Email</label>
+                        <label>Email (Required)</label>
                         <input type="email" name="email"
                             size="30" maxLength="100" required
                             pattern="[^ @]+@[^ @]+.[a-z]+"
@@ -115,19 +119,18 @@ function Contact() {
                                     name="opponent"
                                     id="1000duckhorse"
                                     value="1000 Duck-Sized Horses"
-
                                 />
                                 1000 Duck-Sized Horses
                             </label>
                         </div>
-                        <label>Message</label>
+                        <label>Message (Required)</label>
                         <textarea name="message"
                             maxLength="250" required
                             placeholder='Write 250 characters or less.'
                             onChange={handleChange}
                             value={formData.message || ''}
                         />
-                        <input type="submit" value="Send" />
+                        <input type="submit" value="Send" className="sendButton" />
                     </fieldset>
                 </form>
             </article>

@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import CatList from '../components/CatList.js';
 
 function CatPage({ setCatForEditing }) {
@@ -30,6 +30,7 @@ function CatPage({ setCatForEditing }) {
             const getResponse = await fetch('/cats');
             const cats = await getResponse.json();
             setCats(cats);
+            alert(`Deleted cat. Id: ${_id}`);
         } else {
             console.error(`Failed to delete movie with _id = ${_id}, status code = ${response.status}`)
         }
@@ -44,8 +45,10 @@ function CatPage({ setCatForEditing }) {
     return (
         <>
             <h2 className="pageTitle">Cats</h2>
-            <p>Perform CRUD operations using our REST API.</p>
-            <p><Link to="/cats/create" >Add a Cat</Link></p>
+            <p className="pageSubtitle">
+                Perform <strong>CRUD</strong> operations by making asynchronous
+                calls to the endpoints of our <strong>REST</strong> API.
+            </p>
             <CatList
                 cats={cats}
                 onEdit={onEditCat}

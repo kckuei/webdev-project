@@ -58,7 +58,7 @@ function ProductQuantity({ product, orderItems, setOrderItems, setOrderTotal }) 
 
     return (
         <div className="quantityBox">
-            <div className="quantity">{quantity}</div>
+            <strong><div className="quantity">{quantity}</div></strong>
             <div className="incrementerBox">
                 <BiUpArrow
                     className="incrementer"
