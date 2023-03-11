@@ -1,3 +1,5 @@
+import schematic from '.././imgs/schematic.svg';
+
 function Home() {
     return (
         <>
@@ -21,7 +23,7 @@ function Home() {
                 </p>
                 <p>Code is organized following the Model, View, Controller (<strong>MVC</strong>) paradigm.
                 </p>
-                <p>This SPA is organized into several pages:
+                <p>This SPA includes several pages:
                     <ul>
                         <li>
                             <strong><code>Home</code></strong> - provides an overview of our SPA
@@ -59,6 +61,8 @@ function Home() {
                     />
                 </div>
                 <figcaption>Video demo of our SPA.</figcaption>
+                <img class="diagramImg" src={schematic} alt="app diagram" />
+                <figcaption>Schematic diagram of how the app works.</figcaption>
             </article>
         </>
     );

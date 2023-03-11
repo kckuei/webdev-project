@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { VscGithubAlt } from 'react-icons/vsc';
 
 export const AddCatPage = () => {
 
@@ -43,8 +44,8 @@ export const AddCatPage = () => {
     return (
         <>
             <article>
-                <h2 className="pageTitle">Add Cat</h2>
-                <p>Add a cat to the collection.</p>
+                <h2 className="pageTitle">Add Cat  <VscGithubAlt /></h2>
+                <p>Add a cat to the collection using the data model <strong>SCHEMA</strong>.</p>
                 <form onSubmit={(e) => { e.preventDefault(); }}>
                     <fieldset>
                         <legend>What cat are you adding?</legend>

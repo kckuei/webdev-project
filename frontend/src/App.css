@@ -8,16 +8,19 @@
 /*   ----- Variables  -----  */
 :root {
   --beaver-orange: #DC4405;
+  --light-orange: hsl(36, 89%, 61%);
+  --table-odd: hsl(37, 48%, 77%);
+  --table-even: rgb(236, 234, 229);
   --text-color: rgb(37, 37, 37);
   --border-color: rgb(37, 37, 37);
-  /* --luminance-color: hsl(36, 99%, 51%); */
-  --luminance-color: hsl(36, 89%, 61%);
   --article-color: hsl(39, 81%, 94%);
   --article-text-color: rgb(37, 37, 37);
-  --contrast-color: rgba(0, 135, 153, 0.8);
   --navbar-color: #333;
   --navtext-color: #f2f2f2;
   --navhover-color: #ddd;
+  --button-text-color: white;
+  --button-hover-color: rgb(65, 63, 63);
+  --button-text-highlight-color: rgba(141, 206, 240, 0.8);
 }
 
 /*  ----- Viewport ----- elements inherited by all remaining elements ----- */
@@ -58,7 +61,6 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: var(--luminance-color); */
 }
 
 article {
@@ -135,7 +137,7 @@ nav a.active {
 }
 
 .nav-articles a {
-  background-color: var(--luminance-color);
+  background-color: var(--light-orange);
   color: var(--text-color);
   font-size: 0.8em;
   margin-right: 0px;
@@ -160,7 +162,7 @@ h4 {
 }
 
 h5 {
-  color: var(--luminance-color);
+  color: var(--light-orange);
 }
 
 .subtitle {
@@ -171,31 +173,6 @@ h5 {
   width: 100%;
   text-align: left;
   outline: none;
-}
-
-.active,
-.foldable:hover {
-  background-color: #555;
-}
-
-
-.foldable::after {
-  content: "\002B";
-  color: white;
-  font-weight: bold;
-  float: right;
-  margin-left: 5px;
-}
-
-.foldable.active::after {
-  content: "\2212";
-}
-
-.content {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
 }
 
 /*  ----- Coding or instructional typography ----- */
@@ -220,11 +197,11 @@ pre {
 }
 
 .customTable tbody tr:nth-child(odd) {
-  background-color: rgb(243, 231, 199);
+  background-color: var(--table-odd);
 }
 
 .customTable tbody tr:nth-child(even) {
-  background-color: rgb(236, 234, 229);
+  background-color: var(--table-even);
 }
 
 .customTable thead tr {
@@ -242,10 +219,6 @@ caption {
 
 thead {
   font-weight: bold;
-}
-
-tr:nth-child(even) {
-  background-color: var(--luminance-color);
 }
 
 th,
@@ -285,8 +258,6 @@ td {
 .quantity {
   margin-left: 15px;
 }
-
-
 
 /*  ----- Lists ----- */
 dt {
@@ -379,21 +350,24 @@ textarea {
 .submitButton,
 .cancelButton {
   background-color: var(--beaver-orange);
-  color: white;
+  color: var(--button-text-color);
   font-size: 1.2rem;
   width: 200px;
 }
 
 .hireButton:hover {
   background-color: rgb(65, 63, 63);
-  color: white;
 }
 
-.highlight {
-  color: rgba(141, 206, 240, 0.8);
-  font-weight: bold;
+.buttonTextAccent {
+  color: var(--text-color);
 }
 
+.hireButton:hover .buttonTextAccent {
+  color: var(--beaver-orange);
+}
+
+/* Center the staff buttons */
 .buttonContainer {
   display: flex;
   flex-direction: row;
@@ -437,7 +411,6 @@ strong {
 }
 
 /* Animations */
-
 .pageTitle,
 .pageSubtitle,
 article {
@@ -506,7 +479,7 @@ article {
   color: var(--navbar-color);
 }
 
-/* Demo Video */
+/* Demo Video sizing */
 .videoWrapper {
   text-align: center;
   max-width: 600px;
@@ -521,6 +494,12 @@ iframe {
   height: 100%;
 }
 
+/* Diagram centering */
+.diagramImg {
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+}
 
 
 @keyframes App-logo {}

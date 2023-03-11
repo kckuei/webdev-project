@@ -63,12 +63,12 @@ function Staff() {
                     <button onClick={getData}
                         id="browserButton"
                         className="hireButton">
-                        Call Random Person API through <strong className="highlight">Browser</strong>
+                        Call Random Person API through <strong className="buttonTextAccent">Browser</strong>
                     </button>
                     <button onClick={getData}
                         id="serverButton"
                         className="hireButton">
-                        Call Random Person API through <strong className="highlight">Server</strong>
+                        Call Random Person API through <strong className="buttonTextAccent">Server</strong>
                     </button>
                 </div>
                 <div className="staffTableContainer">

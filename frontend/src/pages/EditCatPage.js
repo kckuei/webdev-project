@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { VscGithubAlt } from 'react-icons/vsc';
+
 
 export const EditCatPage = ({ catForEditing }) => {
 
@@ -44,7 +46,7 @@ export const EditCatPage = ({ catForEditing }) => {
     return (
         <>
             <article>
-                <h2 className="pageTitle">Edit Cat</h2>
+                <h2 className="pageTitle">Edit Cat  <VscGithubAlt /></h2>
                 <p>Edit a cat in the collection.</p>
                 <form onSubmit={(e) => { e.preventDefault(); }}>
                     <fieldset>
