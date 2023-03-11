@@ -11,8 +11,9 @@ import AddCatPage from './pages/AddCatPage.js';
 import EditCatPage from './pages/EditCatPage.js';
 import OrderPage from './pages/OrderPage.js';
 import ContactPage from './pages/ContactPage.js';
-import Navigation from './components/Navigation.js';
 import NotFound from './pages/NotFound.js';
+import Navigation from './components/Navigation.js';
+import Ribbon from './components/Ribbon.js';
 
 import { MdEngineering } from 'react-icons/md';
 import { GiPotato } from 'react-icons/gi';
@@ -35,6 +36,7 @@ function App() {
             <MdEngineering />  Civil Engineer  <FaCodeBranch />  Coding Amateur <RiHeartsFill /> Cat Lover  <GiPotato />  Couch Potato
           </p>
           <Navigation />
+          <Ribbon />
         </header>
 
         <main>

@@ -354,8 +354,12 @@ datalist {}
 .incrementerBox {
   display: flex;
   flex-direction: column;
-  row-gap: 5px;
+  row-gap: 0px;
   align-items: center;
+}
+
+.incrementer:active {
+  color: var(--beaver-orange);
 }
 
 .quantityBox {
@@ -593,6 +597,10 @@ object {}
 
 /* Animations */
 
+.pageTitle {
+  animation: fadeIn 1.2s;
+}
+
 #t1 {
   animation: fadeIn 0.4s;
 }
@@ -639,7 +647,20 @@ object {}
   border-radius: 50%;
 }
 
+/* Ribbon Icons */
+.ribbonContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  row-gap: 5px;
+}
 
+.ribbonIcons {
+  color: var(--navbar-color);
+}
 
 
 @keyframes App-logo {}
