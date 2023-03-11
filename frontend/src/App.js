@@ -19,6 +19,7 @@ import { MdEngineering } from 'react-icons/md';
 import { GiPotato } from 'react-icons/gi';
 import { FaCodeBranch } from 'react-icons/fa';
 import { RiHeartsFill } from 'react-icons/ri';
+import { GiBeaver } from 'react-icons/gi';
 
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
           <p className="footerText">Oregon State University</p>
           <p className="footerText">CS-290 Web Development - Winter 2023</p>
           <p className="footerText">&copy; 2023, Kevin Kuei</p>
+          <p><GiBeaver size="30" /></p>
         </footer>
 
       </BrowserRouter>

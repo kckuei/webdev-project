@@ -2,7 +2,8 @@
 function NotFound() {
     return (
         <>
-            <p><strong>404:</strong> Hmm, there doesn't seem to be anything here.</p>
+            <h2 className="pageTitle">404</h2>
+            <p>Hmm, there doesn't seem to be anything here.</p>
         </>
     );
 }

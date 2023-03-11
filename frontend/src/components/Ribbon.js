@@ -6,13 +6,13 @@ function Ribbon() {
     return (
         <>
             <div className="ribbonContainer">
-                <a href="https://www.linkedin.com/in/kevinkuei" target="_blank">
+                <a href="https://www.linkedin.com/in/kevinkuei" target="_blank" rel="noreferrer">
                     <RxLinkedinLogo className="ribbonIcons" size="25" />
                 </a>
-                <a href="https://github.com/kckuei" target="_blank">
+                <a href="https://github.com/kckuei" target="_blank" rel="noreferrer">
                     <VscGithubInverted className="ribbonIcons" size="25" />
                 </a>
-                <a href="https://twitter.com/kckuei/with_replies" target="_blank">
+                <a href="https://twitter.com/kckuei/with_replies" target="_blank" rel="noreferrer">
                     <VscTwitter className="ribbonIcons" size="25" />
                 </a>
             </div>

@@ -69,7 +69,8 @@ function Contact() {
 
     return (
         <>
-            <h2>Contact Us</h2>
+            <h2 className="pageTitle">Contact Us</h2>
+            <p>Tell us what you think by sending a message using MailJS through the browser.</p>
             <article>
                 {submitting &&
                     <div>

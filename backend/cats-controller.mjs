@@ -1,12 +1,17 @@
 /*
 cats-controller.mjs
 
-Defines the Cat controller and routes for our API.
+This script has 3 purposes:
 
-Here, we create our Express API server, and use our data model from 
-cats-model.mjs to expose the CRUD operations in in a RESTful way.
+1. Defines the Cat CONTROLLER and endpoints for our API.
+Here we define the Express server and routes, and use the 
+data model to expose the CRUD operations in a RESTful way.
 
-Email service backend for orders is also included here.
+2. Also defines the endpoints for our Email forwarding backend 
+for orders. 
+
+3. Also defines a random person endpoint as an alternative to
+running in the browser.
 */
 
 // Import dependencies.
@@ -251,4 +256,27 @@ function createConfirmMessage(req) {
         `
     };
     return message;
+}
+
+
+
+
+// ====================== RANDOM PERSON API ======================
+// Endpoint for the random person API.
+app.get('/random', asyncHandler(getRandomPersonData));
+
+async function getRandomPersonData(req, res) {
+    try {
+        // Call random person API and parse the data.
+        const url = 'https://randomuser.me/api/?results=10&gender=female';
+        const response = await fetch(url);
+        const data = await response.json();
+
+        // Send the data back to the browser.
+        res.json(JSON.stringify(data))
+        console.log('Backend successfully sent random person data.')
+    } catch (error) {
+        console.error('Backend failed to send random person data:', error)
+    }
+
 }

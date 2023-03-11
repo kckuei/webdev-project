@@ -1,7 +1,6 @@
 /* cats-model.mjs
 
-Defines the Cat data model and methods used by the controller.
-
+Defines the Cat data MODEL and methods used by the CONTROLLER.
 Here, we connect to our mongoDB database, define the schema, 
 and basic CRUD operations.
 */

@@ -1,7 +1,7 @@
 function Home() {
     return (
         <>
-            <h2>About this Application</h2>
+            <h2 className="pageTitle">About this Application</h2>
             <article>
                 <p>
                     <strong>Welcome!</strong> This is the final project for Oregon State's <strong>CS-290
@@ -45,6 +45,18 @@ function Home() {
                         </li>
                     </ul>
                 </p>
+                <div className="videoWrapper">
+                    {/* Must use an embed link! */}
+                    <iframe
+                        className="demoVideo"
+                        // src='https://www.youtube.com/embed/E7wJTI-1dvQ'
+                        src='https://www.youtube.com/embed/dQw4w9WgXcQ'
+                        frameborder='0'
+                        allow='autoplay; encrypted-media'
+                        allowfullscreen
+                        title='Demo Video'
+                    />
+                </div>
             </article>
         </>
     );

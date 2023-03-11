@@ -102,7 +102,7 @@ function Order() {
 
     return (
         <>
-            <h2>Order</h2>
+            <h2 className="pageTitle">Order</h2>
             {submitted && <div>
                 <p className="description"><Link onClick={refreshOrderForm}>Click here to place a new order here.</Link></p>
                 <p className="description">Thanks for your order {formData.name}! You will recieve a confirmation email shortly at {formData.email}!</p>
@@ -130,7 +130,8 @@ function Order() {
                 <p className="description">Shipping Address: {formData.shippingAddress}</p>
                 <p className="description">Delivery Instructions: {formData.deliveryInstructions}</p>
             </div>}
-            {!submitted && <p className="description">Please consider placing an order with us! Although our prices may seem astronomically gargantuan, all proceeds go to the Adopt-A-Kitty 🐱 and Make-A-Puppy-Wag-It's-Tail 🐶 society!</p>}
+            {!submitted && <p className="description">Place an order with us! Our prices may seem unreasonably astronomical (it is), but all proceeds go to the Adopt-A-Kitty 🐱 and Make-A-Puppy-Wag-It's-Tail 🐶 society!</p>}
+            {!submitted && <p className="description">Updates your order total, then posts your order to our backend, which send a confirmation to you and our records using nodemailer and the SendInBlue API.</p>}
             {!submitted && <article>
                 <table className="orderTable">
                     <caption>

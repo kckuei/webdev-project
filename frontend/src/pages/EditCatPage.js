@@ -44,8 +44,8 @@ export const EditCatPage = ({ catForEditing }) => {
     return (
         <>
             <article>
-                <h2>Edit a cat in the collection</h2>
-                <p>Paragraph about this page.</p>
+                <h2 className="pageTitle">Edit Cat</h2>
+                <p>Edit a cat in the collection</p>
                 <form onSubmit={(e) => { e.preventDefault(); }}>
                     <fieldset>
                         <legend>What cat are you adding?</legend>

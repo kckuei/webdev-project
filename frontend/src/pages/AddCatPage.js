@@ -43,8 +43,8 @@ export const AddCatPage = () => {
     return (
         <>
             <article>
-                <h2>Add a cat to the collection</h2>
-                <p>Paragraph about this page.</p>
+                <h2 className="pageTitle">Add Cat</h2>
+                <p>Add a cat to the collection</p>
                 <form onSubmit={(e) => { e.preventDefault(); }}>
                     <fieldset>
                         <legend>What cat are you adding?</legend>

@@ -43,7 +43,7 @@ function CatPage({ setCatForEditing }) {
     // DISPLAY the cats.
     return (
         <>
-            <h2>Cats</h2>
+            <h2 className="pageTitle">Cats</h2>
             <p>Perform CRUD operations using our REST API.</p>
             <p><Link to="/cats/create" >Add a Cat</Link></p>
             <CatList
