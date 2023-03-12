@@ -53,11 +53,15 @@ function Home() {
                     <iframe
                         className="demoVideo"
                         // src='https://www.youtube.com/embed/E7wJTI-1dvQ'
-                        src='https://www.youtube.com/embed/dQw4w9WgXcQ'
-                        frameborder='0'
+                        // src='https://www.youtube.com/embed/dQw4w9WgXcQ'
+                        src='https://www.youtube.com/embed/kVgrN9wMP1E'
+                        frameborder='2'
                         allow='autoplay; encrypted-media'
-                        allowfullscreen
                         title='Demo Video'
+                        allowFullScreen="true"
+                        webkitallowfullscreen="true"
+                        mozallowfullscreen="true"
+                        allowfullscreen
                     />
                 </div>
                 <figcaption>Video demo of our SPA.</figcaption>

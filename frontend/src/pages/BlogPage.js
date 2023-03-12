@@ -45,7 +45,7 @@ function Blog() {
                 <p>
                     I copied this assignment folder securely to the OSU engineering file space
                     via SSH/SCP. This makes the assignment available at the
-                    following <a href=" https://web.engr.oregonstate.edu/~kueik/a1-kueik/">URL</a>. The 'index.html'
+                    following <a href=" https://web.engr.oregonstate.edu/~kueik/a1-kueik/" target="_blank" rel="noreferrer">URL</a>. The 'index.html'
                     file is the default name for a 'home' page of a website hosted on the Apache web server,
                     which is what OSU's Engineering server is using.
                 </p>

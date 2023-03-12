@@ -22,6 +22,7 @@ function Staff() {
             try {
                 const response = await fetch(url);
                 const data = await response.json();
+                console.log('Browser successfully called random person API.');
                 console.log(data);
                 setResults(data.results);
             }
@@ -37,6 +38,7 @@ function Staff() {
                 // If response status is good, then parse the JSON.
                 const stringData = await response.json();
                 const data = JSON.parse(stringData);
+                console.log('Backend successfully recieved random person data from backend.');
                 console.log(data);
                 setResults(data.results);
             } else {
