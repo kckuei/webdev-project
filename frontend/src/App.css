@@ -501,6 +501,13 @@ iframe {
   margin-top: 20px;
 }
 
+/* Center new order link */
+.newOrderLink {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
 
 @keyframes App-logo {}
 

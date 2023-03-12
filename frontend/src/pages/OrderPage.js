@@ -104,9 +104,7 @@ function Order() {
         <>
             <h2 className="pageTitle">Order</h2>
             {submitted && <article>
-                <caption>
-                    <p><Link onClick={refreshOrderForm}>Place a New Order</Link></p>
-                </caption>
+                <p class="newOrderLink"><Link onClick={refreshOrderForm}>Place a New Order</Link></p>
                 <p >
                     Thanks for your order <strong>{formData.name}</strong>!
                     You will recieve a confirmation email shortly at <strong>{formData.email}</strong>!
