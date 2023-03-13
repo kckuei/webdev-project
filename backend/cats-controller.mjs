@@ -217,7 +217,7 @@ function createOrderMessage(req) {
         Number: ${req.body.formData.phoneNumber}
 
         Shipping Info
-        Shipping Address: ${req.body.shippingAddress}
+        Shipping Address: ${req.body.formData.shippingAddress}
         Delivery Instructions: ${req.body.formData.deliveryInstructions}
         
         Payment Info
@@ -235,9 +235,10 @@ function createOrderMessage(req) {
 
 // Customer order confirmation message template.
 function createConfirmMessage(req) {
+    const recipient = `${req.body.formData.name} <${req.body.formData.email}>`;
     const message = {
         from: `CS-290 Order Page <kevinkuei@gmail.com>`,
-        to: 'Kevin Kuei <kevinkuei@gmail.com>',
+        to: recipient,
         subject: 'CS-290 Confirmation Order',
         text: `Your Order Details:
 
@@ -251,8 +252,8 @@ function createConfirmMessage(req) {
         Items: ${JSON.stringify(req.body.orderItems)}
 
         Shipping Info
-        Shipping Address: ${req.body.shippingAddress}
-        Delivery Instructions: ${req.body.deliveryInstructions}
+        Shipping Address: ${req.body.formData.shippingAddress}
+        Delivery Instructions: ${req.body.formData.deliveryInstructions}
         `
     };
     return message;
